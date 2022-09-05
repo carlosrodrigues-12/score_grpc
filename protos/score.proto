@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.score";
+option java_outer_classname = "ScoreService";
+option objc_class_prefix = "JS";
+
+package score;
+
+service Operacoes {
+  rpc ConsultCurrentScore () returns (DataScore) {}
+
+  rpc CalcNewScore (Player) returns (Player) {}
+
+  rpc UpdateScore (Player) returns (Status) {}
+}
+
+message Player {
+    string player = 1;
+    int32 point = 2;
+}
+
+message DataScore {
+    list score = 1;
+}
+
+message Status {
+    string status = 1;
+}
