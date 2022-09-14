@@ -12,7 +12,7 @@ def run():
         stub = score_pb2_grpc.OperacoesStub(channel)
 
         # Score
-        response = stub.ConsultCurrentScore()
+        response = stub.ConsultCurrentScore(score_pb2.EmptyMessage())
         # print ('Employee\'s data: ' + str(response))
         print(response)
 
