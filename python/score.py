@@ -35,6 +35,14 @@ class Message(score_pb2_grpc.MessageServicer):
         }
         score.append(data)
         return score_pb2.DataScore(player=request.player,score=request.score)
+
+    def CalcNewScore (self, request, context):
+        
+        return score_pb2.Player(player=request.player,point=request.point)
+
+    def UpdateScore (self, request, context):
+        
+        return score_pb2.Status(status='OK')
         
 '''    def UpdateScore (self, request, context):
         data = {
