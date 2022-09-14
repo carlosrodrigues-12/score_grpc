@@ -39,7 +39,9 @@ class Operacoes(score_pb2_grpc.OperacoesServicer):
         # return score_pb2.DataScore(player=request.player,score=request.score)'''
 
     def CalcNewScore (self, request, context):
-        
+        play = [ p for p in score if (p['player'] == request.player) ]
+        newscore = play[0]['score']
+        newscore = newscore + request.point
         return score_pb2.Player(player=request.player,point=request.point)
 
     def UpdateScore (self, request, context):
