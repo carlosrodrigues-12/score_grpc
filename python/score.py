@@ -26,7 +26,7 @@ def CalcScore(ip_dest,player,point):
         return score_pb2.Player(player=player,point=point)
 '''
 
-class Message(score_pb2_grpc.MessageServicer):
+class Operacoes(score_pb2_grpc.OperacoesServicer):
 
     def ConsultCurrentScore (self, request, context):
         list = score_pb2.ListScore()
