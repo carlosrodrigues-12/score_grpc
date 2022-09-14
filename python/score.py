@@ -8,11 +8,11 @@ import score_pb2_grpc
 
 score = [
 {
- 'player': 'Player1',
+ 'player1': 'Player 1',
  'score': 10
  },
  {
- 'player': 'Player2',
+ 'player2': 'Player 2',
  'score': 20
  }
 ]
