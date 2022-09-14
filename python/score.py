@@ -29,11 +29,11 @@ def CalcScore(ip_dest,player,point):
 class Message(score_pb2_grpc.MessageServicer):
 
     def ConsultCurrentScore (self, request, context):
-        data = {
-            'player':request.player,
-            'score':request.score
-        }
-        score.append(data)
+        list = score_pb2.ListScore()
+        for item in score:
+            data = score_pb2.DataScore(player=item['player'], score=item['score'])
+            list.Data_Score.append(data)
+            return list
         return score_pb2.DataScore(player=request.player,score=request.score)
 
     def CalcNewScore (self, request, context):

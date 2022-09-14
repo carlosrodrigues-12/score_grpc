@@ -8,7 +8,7 @@ option objc_class_prefix = "JS";
 package score;
 
 service Operacoes {
-  rpc ConsultCurrentScore (EmptyMessage) returns (DataScore) {}
+  rpc ConsultCurrentScore (EmptyMessage) returns (ListScore) {}
 
   rpc CalcNewScore (Player) returns (Player) {}
 
