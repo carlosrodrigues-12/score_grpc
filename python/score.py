@@ -57,7 +57,7 @@ class Operacoes(score_pb2_grpc.OperacoesServicer):
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    score_pb2_grpc.add_OperacoesServicer_to_server(Message(), server)
+    score_pb2_grpc.add_OperacoesServicer_to_server(Operacoes(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()
