@@ -33,8 +33,8 @@ class Operacoes(score_pb2_grpc.OperacoesServicer):
         for item in score:
             data = score_pb2.DataScore(player=item['player'], score=item['score'])
             list.Data_Score.append(data)
-            return list
-        return score_pb2.DataScore(player=request.player,score=request.score)
+        return list
+        # return score_pb2.DataScore(player=request.player,score=request.score)
 
     def CalcNewScore (self, request, context):
         
