@@ -24,5 +24,5 @@ if __name__ == '__main__':
     myidentify = str(sys.argv[1])
     while True:
         print(f'PLAYER: {myidentify}')
-        point = input("ENTER POINT: ")
+        point = int(input("ENTER POINT: "))
         run(myidentify,point)
