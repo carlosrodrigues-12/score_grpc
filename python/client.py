@@ -17,7 +17,10 @@ def run(myidentify,point):
         print(f'SCORE ATUAL {response}\n')
 
         calc = stub.CalcNewScore(score_pb2.Player(player=myidentify,point=point))
-        print(f'CALC SCORE {calc}\n')
+        pointCalc = calc['point']
+        print(f'CALC SCORE {pointCalc}\n')
+
+        # upd = stub.UpdateScore(score_pb2.Player(player=myidentify,point=calc[]))
 
 if __name__ == '__main__':
     logging.basicConfig()
