@@ -19,5 +19,5 @@ def run():
 
 if __name__ == '__main__':
     logging.basicConfig()
-    myip = str(sys.argv[1])
+    myidentify = str(sys.argv[1])
     run()
