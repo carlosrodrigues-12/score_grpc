@@ -21,9 +21,14 @@ message Player {
 }
 
 message DataScore {
-    list score = 1;
+    string player = 1;
+    int32 score = 2;
 }
 
 message Status {
     string status = 1;
+}
+
+message ListScore {
+    repeated DataScore Data_Score = 1;
 }
