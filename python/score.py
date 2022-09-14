@@ -8,11 +8,11 @@ import score_pb2_grpc
 
 score = [
 {
- 'player1': 'Player 1',
+ 'player': 'player1',
  'score': 10
  },
  {
- 'player2': 'Player 2',
+ 'player': 'player2',
  'score': 20
  }
 ]
@@ -29,12 +29,14 @@ def CalcScore(ip_dest,player,point):
 class Operacoes(score_pb2_grpc.OperacoesServicer):
 
     def ConsultCurrentScore (self, request, context):
-        list = score_pb2.ListScore()
+        play = [ p for p in score if (p['player'] == request.player) ]
+        return score_pb2.DataScore(player=play[0]['player'], score=play[0]['score'])
+        '''list = score_pb2.ListScore()
         for item in score:
             data = score_pb2.DataScore(player=item['player'], score=item['score'])
             list.Data_Score.append(data)
         return list
-        # return score_pb2.DataScore(player=request.player,score=request.score)
+        # return score_pb2.DataScore(player=request.player,score=request.score)'''
 
     def CalcNewScore (self, request, context):
         
