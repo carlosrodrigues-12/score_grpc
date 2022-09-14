@@ -17,8 +17,8 @@ def run(myidentify,point):
         print(f'SCORE ATUAL {response}\n')
 
         calc = stub.CalcNewScore(score_pb2.Player(player=myidentify,point=point))
-        pointCalc = calc['point']
-        print(f'CALC SCORE {pointCalc}\n')
+        # print(f'CALC SCORE {calc}\n')
+        print(calc)
 
         # upd = stub.UpdateScore(score_pb2.Player(player=myidentify,point=calc[]))
 
