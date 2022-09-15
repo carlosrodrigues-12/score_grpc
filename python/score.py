@@ -45,7 +45,11 @@ class Operacoes(score_pb2_grpc.OperacoesServicer):
         return score_pb2.Player(player=request.player,point=newscore)
 
     def UpdateScore (self, request, context):
-        
+        i = 0
+        while i < len(score):
+            if (score[i]['player'] == request.player):
+                score[i]['score'] = request.point
+            i = i + 1
         return score_pb2.Status(status='OK')
         
 '''    def UpdateScore (self, request, context):
