@@ -39,5 +39,5 @@ if __name__ == '__main__':
                 point = int(input("ENTER POINT: "))
                 if (point > 0):
                     break
-                print('ENTRE COM UMA PONTUACAO POSITIVA')
+                print('ENTRE COM UMA PONTUACAO MAIOR QUE ZERO')
             run(myidentify,point,op)
