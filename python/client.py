@@ -35,5 +35,8 @@ if __name__ == '__main__':
             point=0
             run(myidentify,point,op)
         else:
-            point = int(input("ENTER POINT: "))
+            while True:
+                point = int(input("ENTER POINT: "))
+                if (point > 0):
+                    break
             run(myidentify,point,op)
