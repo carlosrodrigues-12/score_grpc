@@ -17,26 +17,16 @@ score = [
  }
 ]
 
-'''
-def CalcScore(ip_dest,player,point):
-    with grpc.insecure_channel(ip_dest) as channel:
-        stub = score_pb2_grpc.MessageStub(channel)
-        response = stub.CalcNewScore(score_pb2.Player(player=player,point=point))
-        print("Client received: " + response.message)
-        return score_pb2.Player(player=player,point=point)
-'''
-
 class Operacoes(score_pb2_grpc.OperacoesServicer):
 
     def ConsultCurrentScore (self, request, context):
-        play = [ p for p in score if (p['player'] == request.player) ]
-        return score_pb2.DataScore(player=play[0]['player'], score=play[0]['score'])
-        '''list = score_pb2.ListScore()
-        for item in score:
-            data = score_pb2.DataScore(player=item['player'], score=item['score'])
+        #play = [ p for p in score if (p['player'] == request.player) ]
+        #return score_pb2.DataScore(player=play[0]['player'], score=play[0]['score'])
+        list = score_pb2.ListScore()
+        for p in score:
+            data = score_pb2.DataScore(player=p['player'], score=p['score'])
             list.Data_Score.append(data)
         return list
-        # return score_pb2.DataScore(player=request.player,score=request.score)'''
 
     def CalcNewScore (self, request, context):
         play = [ p for p in score if (p['player'] == request.player) ]
@@ -51,17 +41,6 @@ class Operacoes(score_pb2_grpc.OperacoesServicer):
                 score[i]['score'] = request.point
             i = i + 1
         return score_pb2.Status(status='OK')
-        
-'''    def UpdateScore (self, request, context):
-        data = {
-            "player":request.player,
-            "point":request.point
-        }
-        ip_dest = const.registry[request.player]
-        score.append(data)
-        CalcScore(ip_dest,request.player,request.point)
-        return score_pb2.Status(status='OK')
-'''
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

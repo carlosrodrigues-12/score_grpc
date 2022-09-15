@@ -12,15 +12,14 @@ def run(myidentify,point):
         stub = score_pb2_grpc.OperacoesStub(channel)
 
         # Score
-        response = stub.ConsultCurrentScore(score_pb2.ConsultPlayer(player=myidentify))
-        # print ('Employee\'s data: ' + str(response))
-        print(f'SCORE ATUAL {response}')
+        response = stub.ConsultCurrentScore(score_pb2.EmptyMessage())
+        print(f'SCORE ATUAL\n{response}')
 
         calc = stub.CalcNewScore(score_pb2.Player(player=myidentify,point=point))
-        print(f'CALC SCORE {calc}')
+        print(f'CALC SCORE {myidentify} = {calc.point}')
 
         upd = stub.UpdateScore(score_pb2.Player(player=myidentify,point=calc.point))
-        print(f'NEW SCORE {upd}')
+        print(f'NEW SCORE\n{upd}')
 
 if __name__ == '__main__':
     logging.basicConfig()
