@@ -34,7 +34,7 @@ if __name__ == '__main__':
     myidentify = str(sys.argv[1])
     print(f'PLAYER: {myidentify}')
     while True:
-        op = input("1 CONSULTA - 2 UPDATE SCORE: ")
+        op = int(input("1 CONSULTA - 2 UPDATE SCORE: "))
         if(op == 1):
             consulta()
         else:
